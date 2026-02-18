@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avances</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* MISMOS ESTILOS PARA MANTENER LA COHERENCIA */
+        :root {
+            --color-negro: #111111;
+            --color-gris-claro: #f4f4f4;
+            --color-amarillo: #F5D833;
+            --color-blanco: #ffffff;
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--color-negro); }
+        
+        nav {
+            background-color: var(--color-negro);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--color-amarillo);
+        }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; }
+        .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-menu a:hover { color: var(--color-amarillo); }
+
+        /* Contenido específico de sub-páginas */
+        .page-header { background: var(--color-gris-claro); padding: 3rem 2rem; border-bottom: 2px solid var(--color-negro); }
+        .page-header h1 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
+        .content { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 50vh; }
+        
+        footer { background: var(--color-negro); color: var(--color-blanco); text-align: center; padding: 2rem; border-top: 5px solid var(--color-amarillo); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">URPEKARI</a>
+        <div class="nav-menu">
+            <a href="proyecto.html">Proyecto</a>
+            <a href="avances.html">Avances</a>
+            <a href="pruebas.html">Pruebas</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="agradecimientos.html">Agradecimientos</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Nombre de la Sección</h1> 
+    </header>
+
+    <section class="content">
+        <p>Aquí escribirás el contenido de esta página...</p>
+        <p>Página en construcción.</p>
+    </section>
+
+    <footer>
+        <p>Proyecto Urpekari - EIB</p>
+    </footer>
+
+</body>
+</html>
