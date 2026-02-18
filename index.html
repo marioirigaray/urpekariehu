@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urpekari - Glider Project</title>
+    <title>Urpekari</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* NUEVA PALETA DE COLORES */
-            --color-negro: #111111;       /* Negro casi puro */
-            --color-gris-claro: #f4f4f4;  /* Para fondos suaves */
-            --color-amarillo: #F5D833;    /* Amarillo Banana */
+            --color-negro: #111111;
+            --color-gris-claro: #f4f4f4;
+            --color-amarillo: #F5D833; /* Tu amarillo banana suave */
             --color-blanco: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Fuente cuerpo normal */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -26,48 +25,78 @@
             background-color: var(--color-blanco);
         }
 
-        /* Estilos del Hero Section (La portada) */
+        /* --- ESTILOS DE LA BARRA DE NAVEGACIÓN --- */
+        nav {
+            background-color: var(--color-negro);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between; /* Separa el logo del menú */
+            align-items: center;
+            border-bottom: 3px solid var(--color-amarillo);
+            position: sticky; /* Se queda fijo arriba al hacer scroll */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: var(--color-amarillo);
+            text-decoration: none;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px; /* Espacio entre enlaces */
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-amarillo);
+        }
+
+        /* --- RESTO DE ESTILOS --- */
         .hero {
-            background-color: var(--color-amarillo); /* Fondo Amarillo */
-            color: var(--color-negro);               /* Texto Negro */
+            background-color: var(--color-amarillo);
+            color: var(--color-negro);
             padding: 5rem 2rem;
             text-align: center;
             border-bottom: 5px solid var(--color-negro);
         }
 
         .hero h1 {
-            /* Nueva tipografía para el título */
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900; /* Extra negrita */
+            font-weight: 900;
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
-            text-transform: uppercase; /* Todo mayúsculas para fuerza industrial */
+            text-transform: uppercase;
             letter-spacing: -2px;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--color-negro);
-        }
-
-        /* Estilos de las secciones generales */
-        section {
-            padding: 3rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
+        section { padding: 3rem 2rem; max-width: 900px; margin: 0 auto; }
+        
         h2 {
             color: var(--color-negro);
             font-family: 'Montserrat', sans-serif;
-            border-bottom: 4px solid var(--color-amarillo); /* Subrayado amarillo */
+            border-bottom: 4px solid var(--color-amarillo);
             display: inline-block;
             padding-bottom: 5px;
             text-transform: uppercase;
         }
 
-        /* Estilo para la sección de mecánica */
         .mecanica-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -78,34 +107,18 @@
         .componente-box {
             background: var(--color-gris-claro);
             padding: 1.5rem;
-            border-radius: 0px; /* Bordes cuadrados (más técnico) */
             border: 2px solid var(--color-negro);
-            box-shadow: 5px 5px 0px var(--color-amarillo); /* Sombra dura amarilla */
+            box-shadow: 5px 5px 0px var(--color-amarillo);
         }
         
-        .componente-box h3 {
-            margin-top: 0;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
-
-        /* Estilo para especificaciones técnicas */
         .specs-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
-            font-family: 'Courier New', Courier, monospace; /* Fuente tipo código para datos */
+            font-family: 'Courier New', Courier, monospace;
         }
-        .specs-table th, .specs-table td {
-            border: 2px solid var(--color-negro);
-            padding: 12px;
-            text-align: left;
-        }
-        .specs-table th {
-            background-color: var(--color-negro);
-            color: var(--color-amarillo); /* Texto amarillo sobre negro */
-            text-transform: uppercase;
-        }
+        .specs-table th, .specs-table td { border: 2px solid var(--color-negro); padding: 12px; }
+        .specs-table th { background-color: var(--color-negro); color: var(--color-amarillo); text-transform: uppercase; }
 
         footer {
             background: var(--color-negro);
@@ -115,75 +128,49 @@
             margin-top: 3rem;
             border-top: 5px solid var(--color-amarillo);
         }
-        
-        footer p span {
-            color: var(--color-amarillo);
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="index.html" class="nav-brand">URPEKARI</a>
+        
+        <div class="nav-menu">
+            <a href="proyecto.html">Proyecto</a>
+            <a href="avances.html">Avances</a>
+            <a href="pruebas.html">Pruebas</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="agradecimientos.html">Agradecimientos</a>
+        </div>
+    </nav>
+
     <header class="hero">
         <h1>Urpekari</h1>
-        <p>Proyecto AUV: Glider Submarino</p>
+        <p>Proyecto Glider Submarino</p>
     </header>
 
     <section id="intro">
-        <h2>¿Qué es un Underwater Glider?</h2>
-        <p>A diferencia de los submarinos tradicionales con hélice, este glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger, convirtiendo el movimiento vertical en horizontal gracias a sus alas hidrodinámicas.</p>
-        <p>Es un concepto de ingeniería elegante diseñado para misiones de larga duración y bajo consumo energético en oceanografía.</p>
-    </section>
-
-    <section id="como-funciona">
-        <h2>Principio de Funcionamiento</h2>
-        <p>El ciclo de "dientes de sierra" se consigue mediante tres sistemas principales:</p>
-        
-        <div class="mecanica-grid">
-            <div class="componente-box">
-                <h3>🔻 Motor de Flotabilidad</h3>
-                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se vuelve más denso que el agua y se hunde.</p>
-            </div>
-            <div class="componente-box">
-                <h3>✈️ Alas Hidrodinámicas</h3>
-                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación (lift) a partir del movimiento vertical.</p>
-            </div>
-            <div class="componente-box">
-                <h3>🔄 Control de Actitud</h3>
-                <p>Una masa móvil interna (baterías) se desplaza adelante/atrás para controlar el cabeceo (pitch) e iniciar la inmersión.</p>
-            </div>
-        </div>
+        <h2>¿Qué es un Glider Submarino?</h2>
+        <p>A diferencia de los submarinos tradicionales con hélice, un glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger.</p>
     </section>
 
     <section id="specs">
-        <h2>Especificaciones</h2>
-        <p>Datos técnicos del prototipo Urpekari.</p>
+        <h2>Especificaciones Rápidas</h2>
         <table class="specs-table">
             <tr>
-                <th>Parámetro</th>
-                <th>Valor Objetivo</th>
-            </tr>
-            <tr>
-                <td>Profundidad Máx.</td>
+                <th>Profundidad</th>
                 <td>200 metros</td>
             </tr>
             <tr>
-                <td>Velocidad Horizontal</td>
-                <td>0.35 m/s (0.5 nudos)</td>
-            </tr>
-            <tr>
-                <td>Autonomía</td>
-                <td>30 días / 500 km</td>
-            </tr>
-             <tr>
-                <td>Sensores</td>
-                <td>CTD + Turbidez</td>
+                <th>Autonomía</th>
+                <td>30 días</td>
             </tr>
         </table>
+        <p style="margin-top:1rem;"><a href="proyecto.html">Ver especificaciones completas en Proyecto &rarr;</a></p>
     </section>
-    
+
     <footer>
-        <p>Proyecto desarrollado por <span>[Tu Nombre]</span> - EIB (UPV/EHU)</p>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
 </body>
