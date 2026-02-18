@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Glider Submarino AUV</title>
+    <style>
+        :root {
+            --color-mar-profundo: #001f3f; /* Azul oscuro */
+            --color-mar-medio: #0074D9;    /* Azul medio */
+            --color-espuma: #E0F7FA;       /* Cian claro */
+            --color-texto: #333;
+            --color-blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-texto);
+        }
+
+        /* Estilos del Hero Section (La portada) */
+        .hero {
+            background-color: var(--color-mar-profundo);
+            color: var(--color-blanco);
+            padding: 4rem 2rem;
+            text-align: center;
+            /* AQUÍ MÁS ADELANTE PONDRÁS UNA FOTO DE FONDO DEL GLIDER */
+            /* background-image: url('tu-foto-glider.jpg'); background-size: cover; */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--color-espuma);
+        }
+
+        /* Estilos de las secciones generales */
+        section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--color-mar-profundo);
+            border-bottom: 3px solid var(--color-mar-medio);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Estilo para la sección de mecánica */
+        .mecanica-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .componente-box {
+            background: var(--color-espuma);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--color-mar-medio);
+        }
+
+        /* Estilo para especificaciones técnicas */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .specs-table th, .specs-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .specs-table th {
+            background-color: var(--color-mar-profundo);
+            color: var(--color-blanco);
+        }
+
+        footer {
+            background: var(--color-mar-profundo);
+            color: var(--color-espuma);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Proyecto AUV: Glider Submarino</h1>
+        <p>Exploración oceánica autónoma mediante propulsión por flotabilidad</p>
+        </header>
+
+    <section id="intro">
+        <h2>¿Qué es un Underwater Glider?</h2>
+        <p>A diferencia de los submarinos tradicionales con hélice, este glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger, convirtiendo el movimiento vertical en horizontal gracias a sus alas hidrodinámicas.</p>
+        <p>Es un concepto de ingeniería elegante diseñado para misiones de larga duración y bajo consumo energético en oceanografía.</p>
+    </section>
+
+    <section id="como-funciona" style="background-color: #f9f9f9;">
+        <h2>Principio de Funcionamiento</h2>
+        <p>El ciclo de "dientes de sierra" se consigue mediante tres sistemas principales:</p>
+        
+        <div class="mecanica-grid">
+            <div class="componente-box">
+                <h3>🔻 Motor de Flotabilidad (VBE)</h3>
+                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se vuelve más denso que el agua y se hunde. Al expandirlo, flota hacia arriba.</p>
+            </div>
+            <div class="componente-box">
+                <h3>✈️ Alas Hidrodinámicas</h3>
+                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación (lift) a partir del movimiento vertical de hundimiento o ascenso, impulsando el glider hacia adelante.</p>
+            </div>
+            <div class="componente-box">
+                <h3>🔄 Control de Actitud (Pitch/Roll)</h3>
+                <p>Una masa móvil interna (normalmente el paquete de baterías) se desplaza adelante/atrás para controlar el cabeceo (pitch) y permitir la inmersión o el ascenso.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs">
+        <h2>Especificaciones del Prototipo</h2>
+        <p>Datos técnicos del diseño actual.</p>
+        <table class="specs-table">
+            <tr>
+                <th>Parámetro</th>
+                <th>Valor Objetivo</th>
+            </tr>
+            <tr>
+                <td>Profundidad Máxima Operativa</td>
+                <td>200 metros</td>
+            </tr>
+            <tr>
+                <td>Velocidad Horizontal Típica</td>
+                <td>0.25 - 0.35 m/s (aprox. 0.5 nudos)</td>
+            </tr>
+            <tr>
+                <td>Autonomía Estimada</td>
+                <td>30 días / 500 km</td>
+            </tr>
+             <tr>
+                <td>Sensores Embarcados</td>
+                <td>CTD (Conductividad, Temperatura, Profundidad)</td>
+            </tr>
+        </table>
+    </section>
+    
+    <footer>
+        <p>Proyecto desarrollado por [Tu Nombre] - Estudiante de Ingeniería</p>
+    </footer>
+
+</body>
+</html>
