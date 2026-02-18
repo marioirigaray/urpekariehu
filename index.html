@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Glider Submarino AUV</title>
+    <title>Urpekari - Glider Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --color-mar-profundo: #001f3f; /* Azul oscuro */
-            --color-mar-medio: #0074D9;    /* Azul medio */
-            --color-espuma: #E0F7FA;       /* Cian claro */
-            --color-texto: #333;
+            /* NUEVA PALETA DE COLORES */
+            --color-negro: #111111;       /* Negro casi puro */
+            --color-gris-claro: #f4f4f4;  /* Para fondos suaves */
+            --color-amarillo: #FFE135;    /* Amarillo Banana */
             --color-blanco: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Fuente cuerpo normal */
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: var(--color-texto);
+            color: var(--color-negro);
+            background-color: var(--color-blanco);
         }
 
         /* Estilos del Hero Section (La portada) */
         .hero {
-            background-color: var(--color-mar-profundo);
-            color: var(--color-blanco);
-            padding: 4rem 2rem;
+            background-color: var(--color-amarillo); /* Fondo Amarillo */
+            color: var(--color-negro);               /* Texto Negro */
+            padding: 5rem 2rem;
             text-align: center;
-            /* AQUÍ MÁS ADELANTE PONDRÁS UNA FOTO DE FONDO DEL GLIDER */
-            /* background-image: url('tu-foto-glider.jpg'); background-size: cover; */
+            border-bottom: 5px solid var(--color-negro);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            /* Nueva tipografía para el título */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900; /* Extra negrita */
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
+            text-transform: uppercase; /* Todo mayúsculas para fuerza industrial */
+            letter-spacing: -2px;
         }
 
         .hero p {
             font-size: 1.5rem;
-            color: var(--color-espuma);
+            font-weight: 500;
+            color: var(--color-negro);
         }
 
         /* Estilos de las secciones generales */
@@ -49,10 +59,12 @@
         }
 
         h2 {
-            color: var(--color-mar-profundo);
-            border-bottom: 3px solid var(--color-mar-medio);
+            color: var(--color-negro);
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 4px solid var(--color-amarillo); /* Subrayado amarillo */
             display: inline-block;
             padding-bottom: 5px;
+            text-transform: uppercase;
         }
 
         /* Estilo para la sección de mecánica */
@@ -64,10 +76,17 @@
         }
 
         .componente-box {
-            background: var(--color-espuma);
+            background: var(--color-gris-claro);
             padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--color-mar-medio);
+            border-radius: 0px; /* Bordes cuadrados (más técnico) */
+            border: 2px solid var(--color-negro);
+            box-shadow: 5px 5px 0px var(--color-amarillo); /* Sombra dura amarilla */
+        }
+        
+        .componente-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
         }
 
         /* Estilo para especificaciones técnicas */
@@ -75,32 +94,40 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
+            font-family: 'Courier New', Courier, monospace; /* Fuente tipo código para datos */
         }
         .specs-table th, .specs-table td {
-            border: 1px solid #ddd;
+            border: 2px solid var(--color-negro);
             padding: 12px;
             text-align: left;
         }
         .specs-table th {
-            background-color: var(--color-mar-profundo);
-            color: var(--color-blanco);
+            background-color: var(--color-negro);
+            color: var(--color-amarillo); /* Texto amarillo sobre negro */
+            text-transform: uppercase;
         }
 
         footer {
-            background: var(--color-mar-profundo);
-            color: var(--color-espuma);
+            background: var(--color-negro);
+            color: var(--color-blanco);
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
+            border-top: 5px solid var(--color-amarillo);
+        }
+        
+        footer p span {
+            color: var(--color-amarillo);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <h1>Proyecto AUV: Glider Submarino</h1>
-        <p>Exploración oceánica autónoma mediante propulsión por flotabilidad</p>
-        </header>
+        <h1>Urpekari</h1>
+        <p>Proyecto AUV: Glider Submarino</p>
+    </header>
 
     <section id="intro">
         <h2>¿Qué es un Underwater Glider?</h2>
@@ -108,55 +135,55 @@
         <p>Es un concepto de ingeniería elegante diseñado para misiones de larga duración y bajo consumo energético en oceanografía.</p>
     </section>
 
-    <section id="como-funciona" style="background-color: #f9f9f9;">
+    <section id="como-funciona">
         <h2>Principio de Funcionamiento</h2>
         <p>El ciclo de "dientes de sierra" se consigue mediante tres sistemas principales:</p>
         
         <div class="mecanica-grid">
             <div class="componente-box">
-                <h3>🔻 Motor de Flotabilidad (VBE)</h3>
-                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se vuelve más denso que el agua y se hunde. Al expandirlo, flota hacia arriba.</p>
+                <h3>🔻 Motor de Flotabilidad</h3>
+                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se vuelve más denso que el agua y se hunde.</p>
             </div>
             <div class="componente-box">
                 <h3>✈️ Alas Hidrodinámicas</h3>
-                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación (lift) a partir del movimiento vertical de hundimiento o ascenso, impulsando el glider hacia adelante.</p>
+                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación (lift) a partir del movimiento vertical.</p>
             </div>
             <div class="componente-box">
-                <h3>🔄 Control de Actitud (Pitch/Roll)</h3>
-                <p>Una masa móvil interna (normalmente el paquete de baterías) se desplaza adelante/atrás para controlar el cabeceo (pitch) y permitir la inmersión o el ascenso.</p>
+                <h3>🔄 Control de Actitud</h3>
+                <p>Una masa móvil interna (baterías) se desplaza adelante/atrás para controlar el cabeceo (pitch) e iniciar la inmersión.</p>
             </div>
         </div>
     </section>
 
     <section id="specs">
-        <h2>Especificaciones del Prototipo</h2>
-        <p>Datos técnicos del diseño actual.</p>
+        <h2>Especificaciones</h2>
+        <p>Datos técnicos del prototipo Urpekari.</p>
         <table class="specs-table">
             <tr>
                 <th>Parámetro</th>
                 <th>Valor Objetivo</th>
             </tr>
             <tr>
-                <td>Profundidad Máxima Operativa</td>
+                <td>Profundidad Máx.</td>
                 <td>200 metros</td>
             </tr>
             <tr>
-                <td>Velocidad Horizontal Típica</td>
-                <td>0.25 - 0.35 m/s (aprox. 0.5 nudos)</td>
+                <td>Velocidad Horizontal</td>
+                <td>0.35 m/s (0.5 nudos)</td>
             </tr>
             <tr>
-                <td>Autonomía Estimada</td>
+                <td>Autonomía</td>
                 <td>30 días / 500 km</td>
             </tr>
              <tr>
-                <td>Sensores Embarcados</td>
-                <td>CTD (Conductividad, Temperatura, Profundidad)</td>
+                <td>Sensores</td>
+                <td>CTD + Turbidez</td>
             </tr>
         </table>
     </section>
     
     <footer>
-        <p>Proyecto desarrollado por [Tu Nombre] - Estudiante de Ingeniería</p>
+        <p>Proyecto desarrollado por <span>[Tu Nombre]</span> - EIB (UPV/EHU)</p>
     </footer>
 
 </body>
