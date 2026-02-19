@@ -99,57 +99,39 @@
             color: var(--color-negro);
         }
 
-        /* --- EFECTO OLAS KANAGAWA (Estilo Agresivo) --- */
+        /* --- EFECTO OLAS (ESTILO TORMENTA BRUTALISTA) --- */
         .waves-container {
             width: 100%;
             position: relative;
-            margin-top: -150px; /* Hacemos que las olas suban y tapen el final de la cabecera amarilla */
+            margin-top: -120px; /* Sube para comerse el fondo amarillo */
             z-index: 2;
-            pointer-events: none; /* Para que el ratón no se choque con las olas */
+            pointer-events: none;
         }
 
         .waves {
             position: relative;
             width: 100%;
-            height: 25vh; /* Olas mucho más altas y dramáticas */
-            min-height: 150px;
-            max-height: 300px;
+            height: 20vh;
+            min-height: 120px;
+            max-height: 250px;
             display: block;
         }
 
-        /* Animación Parallax más rápida y caótica */
+        /* Animación rápida y caótica */
         .parallax > use {
-            animation: move-forever-kanagawa 15s cubic-bezier(.55,.5,.45,.5) infinite;
+            animation: move-forever 12s cubic-bezier(.55,.5,.45,.5) infinite;
         }
-        /* Capa 1 (Fondo Blanco - Espuma lejana) */
-        .parallax > use:nth-child(1) { 
-            animation-delay: -2s; 
-            animation-duration: 10s; 
-            fill: var(--color-blanco);
-            opacity: 0.7;
-        }
-        /* Capa 2 (Media Negra - Cuerpo de ola) */
-        .parallax > use:nth-child(2) { 
-            animation-delay: -3s; 
-            animation-duration: 13s; 
-            fill: var(--color-negro); 
-            opacity: 0.8;
-            animation-direction: reverse; /* Se mueve al revés para más caos */
-        }
-        /* Capa 3 (Frente Blanca - Cresta rompiendo) */
-        .parallax > use:nth-child(3) { 
-            animation-delay: -4s; 
-            animation-duration: 8s; 
-            fill: var(--color-blanco); 
-        }
-        /* Capa 4 (Frente total Negro - La base que tapa el contenido) */
-        .parallax > use:nth-child(4) { 
-            animation-delay: -5s; 
-            animation-duration: 18s; 
-            fill: var(--color-negro); 
-        }
+        
+        /* Capa 1: Negra al fondo */
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; fill: var(--color-negro); opacity: 0.9;}
+        /* Capa 2: Blanca rompiendo */
+        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; fill: var(--color-blanco); }
+        /* Capa 3: Reflejo Amarillo */
+        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; fill: var(--color-amarillo); opacity: 0.8;}
+        /* Capa 4: Negra cubriendo el frente */
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 18s; fill: var(--color-negro); }
 
-        @keyframes move-forever-kanagawa {
+        @keyframes move-forever {
             0% { transform: translate3d(-90px,0,0); }
             100% { transform: translate3d(85px,0,0); }
         }
@@ -270,14 +252,13 @@
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
-                <path id="rough-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                 <path id="kanagawa-spike" d="M0,0 C30,10 50,25 75,25 C100,25 120,10 150,0 V30 H0 V0 Z" />
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
             </defs>
             <g class="parallax">
-                <use xlink:href="#kanagawa-spike" x="48" y="5" />
-                <use xlink:href="#kanagawa-spike" x="48" y="7" />
-                <use xlink:href="#kanagawa-spike" x="48" y="9" />
-                <use xlink:href="#kanagawa-spike" x="48" y="11" />
+                <use xlink:href="#gentle-wave" x="48" y="0" />
+                <use xlink:href="#gentle-wave" x="48" y="3" />
+                <use xlink:href="#gentle-wave" x="48" y="5" />
+                <use xlink:href="#gentle-wave" x="48" y="7" />
             </g>
         </svg>
     </div>
