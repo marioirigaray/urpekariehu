@@ -24,7 +24,8 @@
             padding: 0;
             line-height: 1.6;
             color: var(--color-negro);
-            background-color: var(--color-blanco);
+            /* CAMBIO IMPORTANTE: El fondo ahora es negro para que el efecto funcione */
+            background-color: var(--color-negro); 
         }
 
         /* --- NAVEGACIÓN --- */
@@ -74,8 +75,10 @@
         .hero {
             background-color: var(--color-amarillo);
             color: var(--color-negro);
-            padding: 5rem 2rem;
+            padding: 6rem 2rem 8rem 2rem; /* Más espacio abajo para las olas grandes */
             text-align: center;
+            position: relative;
+            z-index: 1; /* Asegura que el texto quede por encima */
         }
 
         .hero h1 {
@@ -96,33 +99,69 @@
             color: var(--color-negro);
         }
 
-        /* --- EFECTO OLAS ANIMADAS --- */
+        /* --- EFECTO OLAS KANAGAWA (Estilo Agresivo) --- */
         .waves-container {
             width: 100%;
-            background-color: var(--color-amarillo);
-            margin-bottom: -5px; 
+            position: relative;
+            margin-top: -150px; /* Hacemos que las olas suban y tapen el final de la cabecera amarilla */
+            z-index: 2;
+            pointer-events: none; /* Para que el ratón no se choque con las olas */
         }
 
         .waves {
             position: relative;
             width: 100%;
-            height: 12vh;
-            min-height: 80px;
-            max-height: 150px;
+            height: 25vh; /* Olas mucho más altas y dramáticas */
+            min-height: 150px;
+            max-height: 300px;
             display: block;
         }
 
+        /* Animación Parallax más rápida y caótica */
         .parallax > use {
-            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+            animation: move-forever-kanagawa 15s cubic-bezier(.55,.5,.45,.5) infinite;
         }
-        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
-        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
-        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
-        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+        /* Capa 1 (Fondo Blanco - Espuma lejana) */
+        .parallax > use:nth-child(1) { 
+            animation-delay: -2s; 
+            animation-duration: 10s; 
+            fill: var(--color-blanco);
+            opacity: 0.7;
+        }
+        /* Capa 2 (Media Negra - Cuerpo de ola) */
+        .parallax > use:nth-child(2) { 
+            animation-delay: -3s; 
+            animation-duration: 13s; 
+            fill: var(--color-negro); 
+            opacity: 0.8;
+            animation-direction: reverse; /* Se mueve al revés para más caos */
+        }
+        /* Capa 3 (Frente Blanca - Cresta rompiendo) */
+        .parallax > use:nth-child(3) { 
+            animation-delay: -4s; 
+            animation-duration: 8s; 
+            fill: var(--color-blanco); 
+        }
+        /* Capa 4 (Frente total Negro - La base que tapa el contenido) */
+        .parallax > use:nth-child(4) { 
+            animation-delay: -5s; 
+            animation-duration: 18s; 
+            fill: var(--color-negro); 
+        }
 
-        @keyframes move-forever {
+        @keyframes move-forever-kanagawa {
             0% { transform: translate3d(-90px,0,0); }
             100% { transform: translate3d(85px,0,0); }
+        }
+
+        /* --- CONTENEDOR PRINCIPAL (El fondo blanco donde va el texto) --- */
+        /* Esto es nuevo: necesitamos una caja blanca que "emerja" del agua negra */
+        .main-content-surface {
+            background-color: var(--color-blanco);
+            position: relative;
+            z-index: 3;
+            margin-top: -2px; /* Corrige pequeña línea */
+            padding-top: 2rem;
         }
 
         /* --- SECCIONES GENERALES --- */
@@ -200,10 +239,11 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 1rem; padding: 1rem; }
             .nav-menu { justify-content: center; gap: 15px; }
-            .hero { padding: 3rem 1rem; }
+            .hero { padding: 4rem 1rem 6rem 1rem; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
             section { padding: 2rem 1rem; }
+            .waves-container { margin-top: -100px; }
         }
     </style>
 </head>
@@ -230,60 +270,63 @@
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                <path id="rough-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                 <path id="kanagawa-spike" d="M0,0 C30,10 50,25 75,25 C100,25 120,10 150,0 V30 H0 V0 Z" />
             </defs>
             <g class="parallax">
-                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(17, 17, 17, 0.2)" />
-                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(17, 17, 17, 0.5)" />
-                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(17, 17, 17, 0.8)" />
-                <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-negro)" />
+                <use xlink:href="#kanagawa-spike" x="48" y="5" />
+                <use xlink:href="#kanagawa-spike" x="48" y="7" />
+                <use xlink:href="#kanagawa-spike" x="48" y="9" />
+                <use xlink:href="#kanagawa-spike" x="48" y="11" />
             </g>
         </svg>
     </div>
 
-    <section id="intro">
-        <h2>¿Qué es un Glider Submarino?</h2>
-        <p>A diferencia de los submarinos tradicionales con hélice, un glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger.</p>
-    </section>
-
-    <section id="como-funciona">
-        <h2>Principio de Funcionamiento</h2>
-        <p>El ciclo se consigue mediante tres sistemas principales:</p>
+    <div class="main-content-surface">
         
-        <div class="mecanica-grid">
-            <div class="componente-box">
-                <h3>🔻 Motor de Flotabilidad</h3>
-                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se hunde.</p>
-            </div>
-            <div class="componente-box">
-                <h3>✈️ Alas Hidrodinámicas</h3>
-                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación a partir del movimiento vertical.</p>
-            </div>
-            <div class="componente-box">
-                <h3>🔄 Control de Actitud</h3>
-                <p>Una masa móvil interna se desplaza adelante/atrás para controlar el cabeceo e iniciar la inmersión.</p>
-            </div>
-        </div>
-    </section>
+        <section id="intro">
+            <h2>¿Qué es un Glider Submarino?</h2>
+            <p>A diferencia de los submarinos tradicionales con hélice, un glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger.</p>
+        </section>
 
-    <section id="specs">
-        <h2>Especificaciones Rápidas</h2>
-        <div class="table-wrapper">
-            <table class="specs-table">
-                <tr>
-                    <th>Profundidad</th>
-                    <td>200 metros</td>
-                </tr>
-                <tr>
-                    <th>Autonomía</th>
-                    <td>30 días</td>
-                </tr>
-            </table>
-        </div>
-        <p style="margin-top:1rem;"><a href="proyecto.html">Ver especificaciones completas en Proyecto &rarr;</a></p>
-    </section>
+        <section id="como-funciona">
+            <h2>Principio de Funcionamiento</h2>
+            <p>El ciclo se consigue mediante tres sistemas principales:</p>
+            
+            <div class="mecanica-grid">
+                <div class="componente-box">
+                    <h3>🔻 Motor de Flotabilidad</h3>
+                    <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se hunde.</p>
+                </div>
+                <div class="componente-box">
+                    <h3>✈️ Alas Hidrodinámicas</h3>
+                    <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación a partir del movimiento vertical.</p>
+                </div>
+                <div class="componente-box">
+                    <h3>🔄 Control de Actitud</h3>
+                    <p>Una masa móvil interna se desplaza adelante/atrás para controlar el cabeceo e iniciar la inmersión.</p>
+                </div>
+            </div>
+        </section>
 
-    <footer>
+        <section id="specs">
+            <h2>Especificaciones Rápidas</h2>
+            <div class="table-wrapper">
+                <table class="specs-table">
+                    <tr>
+                        <th>Profundidad</th>
+                        <td>200 metros</td>
+                    </tr>
+                    <tr>
+                        <th>Autonomía</th>
+                        <td>30 días</td>
+                    </tr>
+                </table>
+            </div>
+            <p style="margin-top:1rem;"><a href="proyecto.html">Ver especificaciones completas en Proyecto &rarr;</a></p>
+        </section>
+
+    </div> <footer>
         <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
