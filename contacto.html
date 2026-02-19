@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" type="image/png" href="logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    <title>Contacto - Eusko Glider</title>
     
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+
     <style>
-        /* MISMOS ESTILOS PARA MANTENER LA COHERENCIA */
+        /* Copiamos las variables y el estilo base del index */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
             --color-blanco: #ffffff;
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--color-negro); }
-        
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-negro);
+            background-color: var(--color-blanco);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--color-negro);
             padding: 1rem 2rem;
@@ -24,44 +39,141 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--color-amarillo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
         .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
-        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; transition: color 0.3s; }
         .nav-menu a:hover { color: var(--color-amarillo); }
 
-        /* Contenido específico de sub-páginas */
-        .page-header { background: var(--color-gris-claro); padding: 3rem 2rem; border-bottom: 2px solid var(--color-negro); }
-        .page-header h1 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
-        .content { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 50vh; }
-        
-        footer { background: var(--color-negro); color: var(--color-blanco); text-align: center; padding: 2rem; border-top: 5px solid var(--color-amarillo); }
+        /* --- CABECERA DE PÁGINA --- */
+        .page-header {
+            background-color: var(--color-gris-claro);
+            padding: 3rem 2rem;
+            border-bottom: 2px solid var(--color-negro);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* --- CONTENIDO Y FORMULARIO --- */
+        .content-container {
+            max-width: 600px; /* Un poco más estrecho para el formulario */
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            flex: 1; 
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: var(--color-blanco);
+            padding: 2rem;
+            border: 2px solid var(--color-negro);
+            box-shadow: 8px 8px 0px var(--color-amarillo);
+        }
+
+        .formulario label {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .formulario input, .formulario textarea {
+            padding: 12px;
+            border: 2px solid var(--color-negro);
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: var(--color-gris-claro);
+        }
+
+        .formulario input:focus, .formulario textarea:focus {
+            outline: none;
+            background-color: var(--color-blanco);
+            border-color: var(--color-amarillo);
+        }
+
+        .btn-enviar {
+            background-color: var(--color-negro);
+            color: var(--color-amarillo);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--color-amarillo);
+            color: var(--color-negro);
+        }
+
+        footer {
+            background: var(--color-negro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            border-top: 5px solid var(--color-amarillo);
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-menu { justify-content: center; gap: 15px; }
+            .page-header h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">URPEKARI</a>
+        <a href="index.html" class="nav-brand">Eusko Glider</a>
         <div class="nav-menu">
             <a href="proyecto.html">Proyecto</a>
             <a href="avances.html">Avances</a>
             <a href="pruebas.html">Pruebas</a>
             <a href="equipo.html">Equipo</a>
             <a href="agradecimientos.html">Agradecimientos</a>
+            <a href="contacto.html">Contacto</a>
         </div>
     </nav>
 
     <header class="page-header">
-        <h1>Nombre de la Sección</h1> 
+        <h1>Contacto</h1>
     </header>
 
-    <section class="content">
-        <p>Aquí escribirás el contenido de esta página...</p>
-        <p>Página en construcción.</p>
+    <section class="content-container">
+        <p>¿Tienes alguna pregunta sobre el proyecto Urpekari o quieres colaborar con la EIB? Escríbenos.</p>
+        
+        <form class="formulario" action="#" method="POST">
+            <label for="nombre">Nombre / Entidad</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Jon Pérez">
+
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+
+            <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+        </form>
     </section>
 
     <footer>
-        <p>Proyecto Urpekari - EIB</p>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
 </body>
