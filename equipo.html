@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipo</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    <title>Equipo</title>
     
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+
     <style>
-        /* MISMOS ESTILOS PARA MANTENER LA COHERENCIA */
+        /* --- VARIABLES Y ESTILOS BASE (Igual que en toda la web) --- */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
             --color-blanco: #ffffff;
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--color-negro); }
-        
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-negro);
+            background-color: var(--color-blanco);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--color-negro);
             padding: 1rem 2rem;
@@ -23,24 +39,138 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--color-amarillo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
         .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
-        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; transition: color 0.3s; }
         .nav-menu a:hover { color: var(--color-amarillo); }
 
-        /* Contenido específico de sub-páginas */
-        .page-header { background: var(--color-gris-claro); padding: 3rem 2rem; border-bottom: 2px solid var(--color-negro); }
-        .page-header h1 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
-        .content { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 50vh; }
-        
-        footer { background: var(--color-negro); color: var(--color-blanco); text-align: center; padding: 2rem; border-top: 5px solid var(--color-amarillo); }
+        /* --- CABECERA DE PÁGINA --- */
+        .page-header {
+            background-color: var(--color-gris-claro);
+            padding: 3rem 2rem;
+            border-bottom: 2px solid var(--color-negro);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+        }
+
+        /* --- CONTENIDO --- */
+        .content-container {
+            max-width: 1000px; /* Un poco más ancho para que quepan bien las tarjetas */
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            flex: 1; 
+        }
+
+        .intro-equipo {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- GRID DE TARJETAS DE EQUIPO --- */
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .miembro-tarjeta {
+            background-color: var(--color-blanco);
+            border: 2px solid var(--color-negro);
+            box-shadow: 6px 6px 0px var(--color-amarillo);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .miembro-tarjeta:hover {
+            transform: translateY(-5px); /* Efecto de que se levanta al pasar el ratón */
+        }
+
+        /* Espacio para la foto */
+        .foto-placeholder {
+            height: 250px;
+            background-color: var(--color-gris-claro);
+            border-bottom: 2px solid var(--color-negro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #ccc;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            /* AQUÍ PODRÁS PONER LAS FOTOS REALES LUEGO: */
+            /* background-image: url('foto-jon.jpg'); background-size: cover; background-position: center; */
+        }
+
+        .info-miembro {
+            padding: 1.5rem;
+        }
+
+        .info-miembro h3 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+        }
+
+        .rol {
+            display: inline-block;
+            background-color: var(--color-negro);
+            color: var(--color-amarillo);
+            padding: 4px 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-miembro p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--color-negro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            border-top: 5px solid var(--color-amarillo);
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-menu { justify-content: center; gap: 15px; }
+            .page-header h1 { font-size: 2rem; }
+            .foto-placeholder { height: 200px; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">URPEKARI</a>
+        <a href="index.html" class="nav-brand">Eusko Glider</a>
         <div class="nav-menu">
             <a href="proyecto.html">Proyecto</a>
             <a href="avances.html">Avances</a>
@@ -52,16 +182,57 @@
     </nav>
 
     <header class="page-header">
-        <h1>Nombre de la Sección</h1> 
+        <h1>Nuestro Equipo</h1>
     </header>
 
-    <section class="content">
-        <p>Aquí escribirás el contenido de esta página...</p>
-        <p>Página en construcción.</p>
+    <section class="content-container">
+        <p class="intro-equipo">
+            El proyecto Urpekari está desarrollado por un equipo multidisciplinar de estudiantes de la <strong>Escuela de Ingeniería de Bilbao (UPV/EHU)</strong>. Combinamos conocimientos de mecánica de fluidos, electrónica, y control autónomo para hacer realidad la exploración oceánica de bajo coste.
+        </p>
+
+        <div class="equipo-grid">
+            
+            <div class="miembro-tarjeta">
+                <div class="foto-placeholder">foto-xabino.jpg</div>
+                <div class="info-miembro">
+                    <h3>Xabierno Lagunarias</h3>
+                    <div class="rol">Project Manager / Diseño Mecánico</div>
+                    <p>Encargado de la estructura del casco de presión, el diseño CAD del motor de flotabilidad (VBE) y la coordinación general del proyecto.</p>
+                </div>
+            </div>
+
+            <div class="miembro-tarjeta">
+                <div class="foto-placeholder">foto-mario.jpg</div>
+                <div class="info-miembro">
+                    <h3>Mario Irigaray</h3>
+                    <div class="rol">LA CABRA</div>
+                    <p>Responsable del cerebro electrónico del glider, programación de algoritmos de navegación autónoma y telemetría de datos.</p>
+                </div>
+            </div>
+
+            <div class="miembro-tarjeta">
+                <div class="foto-placeholder">[Foto 3]</div>
+                <div class="info-miembro">
+                    <h3>[Nombre 3]</h3>
+                    <div class="rol">Hidrodinámica / CAD</div>
+                    <p>Especialista en simulaciones CFD (Dinámica de Fluidos Computacional) para optimizar el perfil de las alas y minimizar el drag (arrastre).</p>
+                </div>
+            </div>
+
+             <div class="miembro-tarjeta">
+                <div class="foto-placeholder">[Foto 4]</div>
+                <div class="info-miembro">
+                    <h3>[Nombre 4]</h3>
+                    <div class="rol">Sistemas Electrónicos</div>
+                    <p>Diseño de placas PCB personalizadas, integración de baterías de litio y gestión energética para garantizar la autonomía de 30 días.</p>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <footer>
-        <p>Proyecto Urpekari - EIB</p>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
 </body>
