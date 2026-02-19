@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eusko Glider - Urpekari</title>
+    <title>Eusko Glider</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -137,4 +137,112 @@
         /* --- TABLAS --- */
         .table-wrapper {
             overflow-x: auto;
-            -webkit-overflow-scrolling:
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .specs-table th, .specs-table td { 
+            border: 2px solid var(--color-negro); 
+            padding: 12px; 
+        }
+        
+        .specs-table th { 
+            background-color: var(--color-negro); 
+            color: var(--color-amarillo); 
+            text-transform: uppercase; 
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--color-negro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 5px solid var(--color-amarillo);
+        }
+
+        /* --- VERSIÓN MÓVIL --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-menu { justify-content: center; gap: 15px; }
+            .hero { padding: 3rem 1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            section { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Eusko Glider</a>
+        <div class="nav-menu">
+            <a href="proyecto.html">Proyecto</a>
+            <a href="avances.html">Avances</a>
+            <a href="pruebas.html">Pruebas</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="agradecimientos.html">Agradecimientos</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Eusko Glider</h1>
+        <p>URPEKARI</p>
+    </header>
+
+    <section id="intro">
+        <h2>¿Qué es un Glider Submarino?</h2>
+        <p>A diferencia de los submarinos tradicionales con hélice, un glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger.</p>
+    </section>
+
+    <section id="como-funciona">
+        <h2>Principio de Funcionamiento</h2>
+        <p>El ciclo se consigue mediante tres sistemas principales:</p>
+        
+        <div class="mecanica-grid">
+            <div class="componente-box">
+                <h3>🔻 Motor de Flotabilidad</h3>
+                <p>Un pistón o bomba interna altera el volumen del casco de presión. Al reducir el volumen, el glider se hunde.</p>
+            </div>
+            <div class="componente-box">
+                <h3>✈️ Alas Hidrodinámicas</h3>
+                <p>Funcionan igual que en un avión, pero bajo el agua. Generan sustentación a partir del movimiento vertical.</p>
+            </div>
+            <div class="componente-box">
+                <h3>🔄 Control de Actitud</h3>
+                <p>Una masa móvil interna se desplaza adelante/atrás para controlar el cabeceo e iniciar la inmersión.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs">
+        <h2>Especificaciones Rápidas</h2>
+        <div class="table-wrapper">
+            <table class="specs-table">
+                <tr>
+                    <th>Profundidad</th>
+                    <td>200 metros</td>
+                </tr>
+                <tr>
+                    <th>Autonomía</th>
+                    <td>30 días</td>
+                </tr>
+            </table>
+        </div>
+        <p style="margin-top:1rem;"><a href="proyecto.html">Ver especificaciones completas en Proyecto &rarr;</a></p>
+    </section>
+
+    <footer>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
+    </footer>
+
+</body>
+</html>
