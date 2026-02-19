@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-    <link rel="icon" type="image/png" href="logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eusko Glider</title>
+    <title>Eusko Glider - Urpekari</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
-            --color-amarillo: #F5D833; /* Tu amarillo banana suave */
+            --color-amarillo: #F5D833;
             --color-blanco: #ffffff;
         }
 
@@ -27,15 +27,15 @@
             background-color: var(--color-blanco);
         }
 
-        /* --- ESTILOS DE LA BARRA DE NAVEGACIÓN --- */
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--color-negro);
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between; /* Separa el logo del menú */
+            justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--color-amarillo);
-            position: sticky; /* Se queda fijo arriba al hacer scroll */
+            position: sticky;
             top: 0;
             z-index: 1000;
         }
@@ -52,7 +52,7 @@
 
         .nav-menu {
             display: flex;
-            gap: 20px; /* Espacio entre enlaces */
+            gap: 20px;
             flex-wrap: wrap;
         }
 
@@ -70,7 +70,7 @@
             color: var(--color-amarillo);
         }
 
-        /* --- RESTO DE ESTILOS --- */
+        /* --- HERO (PORTADA) --- */
         .hero {
             background-color: var(--color-amarillo);
             color: var(--color-negro);
@@ -90,14 +90,18 @@
 
         .hero p {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900; /* Extra negrita y sólida */
-            font-size: 1.8rem; /* Tamaño más grande */
-            letter-spacing: 4px; /* Letras más separadas para un look técnico */
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
             margin-top: 0;
             color: var(--color-negro);
         }
 
-        section { padding: 3rem 2rem; max-width: 900px; margin: 0 auto; }
+        /* --- SECCIONES GENERALES --- */
+        section { 
+            padding: 3rem 2rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
         }
         
         h2 {
@@ -109,6 +113,7 @@
             text-transform: uppercase;
         }
 
+        /* --- CAJAS DE MECÁNICA --- */
         .mecanica-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -122,69 +127,14 @@
             border: 2px solid var(--color-negro);
             box-shadow: 5px 5px 0px var(--color-amarillo);
         }
-        
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            font-family: 'Courier New', Courier, monospace;
+
+        .componente-box h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
         }
-        .specs-table th, .specs-table td { border: 2px solid var(--color-negro); padding: 12px; }
-        .specs-table th { background-color: var(--color-negro); color: var(--color-amarillo); text-transform: uppercase; }
-
-        footer {
-            background: var(--color-negro);
-            color: var(--color-blanco);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            border-top: 5px solid var(--color-amarillo);
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html" class="nav-brand">Eusko Glider</a>
         
-        <div class="nav-menu">
-            <a href="proyecto.html">Proyecto</a>
-            <a href="avances.html">Avances</a>
-            <a href="pruebas.html">Pruebas</a>
-            <a href="equipo.html">Equipo</a>
-            <a href="agradecimientos.html">Agradecimientos</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <h1>Eusko Glider</h1>
-        <p>URPEKARI</p>
-    </header>
-
-    <section id="intro">
-        <h2>¿Qué es un Glider Submarino?</h2>
-        <p>A diferencia de los submarinos tradicionales con hélice, un glider es un Vehículo Submarino Autónomo (AUV) que se desplaza sin partes móviles externas. Utiliza cambios en su propia densidad para hundirse y emerger.</p>
-    </section>
-
-    <section id="specs">
-        <h2>Especificaciones Rápidas</h2>
-        <table class="specs-table">
-            <tr>
-                <th>Profundidad</th>
-                <td>200 metros</td>
-            </tr>
-            <tr>
-                <th>Autonomía</th>
-                <td>30 días</td>
-            </tr>
-        </table>
-        <p style="margin-top:1rem;"><a href="proyecto.html">Ver especificaciones completas en Proyecto &rarr;</a></p>
-    </section>
-
-    <footer>
-        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
-    </footer>
-
-</body>
-</html>
+        /* --- TABLAS --- */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling:
