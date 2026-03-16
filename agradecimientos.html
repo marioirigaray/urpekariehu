@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agradecimientos</title> 
+    <title>Agradecimientos - Eusko Glider</title> 
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
     
     <style>
-        /* MISMOS ESTILOS PARA MANTENER LA COHERENCIA */
+        /* --- VARIABLES --- */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
+            --color-fondo: #FFFFD1; /* El blanco roto/crema */
             --color-blanco: #ffffff;
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--color-negro); }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            color: var(--color-negro); 
+            background-color: var(--color-fondo);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
         
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--color-negro);
             padding: 1rem 2rem;
@@ -23,24 +39,106 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--color-amarillo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
         .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
-        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; transition: color 0.3s;}
         .nav-menu a:hover { color: var(--color-amarillo); }
 
-        /* Contenido específico de sub-páginas */
-        .page-header { background: var(--color-gris-claro); padding: 3rem 2rem; border-bottom: 2px solid var(--color-negro); }
-        .page-header h1 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
-        .content { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 50vh; }
-        
-        footer { background: var(--color-negro); color: var(--color-blanco); text-align: center; padding: 2rem; border-top: 5px solid var(--color-amarillo); }
+        /* --- CABECERA DE PÁGINA --- */
+        .page-header { 
+            background: var(--color-fondo); 
+            padding: 3rem 2rem; 
+            border-bottom: 2px solid var(--color-negro); 
+            text-align: center;
+        }
+        .page-header h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: -1px;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .content { 
+            padding: 3rem 2rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            flex: 1;
+        }
+
+        .intro-texto {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- CAJAS DE AGRADECIMIENTOS --- */
+        .agradecimientos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .agradecimiento-card {
+            background: var(--color-blanco);
+            border: 2px solid var(--color-negro);
+            box-shadow: 6px 6px 0px var(--color-amarillo);
+            padding: 2rem;
+        }
+
+        .agradecimiento-card h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--color-negro);
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            color: var(--color-negro);
+        }
+
+        .agradecimiento-card ul {
+            list-style-type: square;
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .agradecimiento-card li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .agradecimiento-card strong {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            background: var(--color-negro); 
+            color: var(--color-blanco); 
+            text-align: center; 
+            padding: 2rem; 
+            border-top: 5px solid var(--color-amarillo); 
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-menu { justify-content: center; gap: 15px; }
+            .page-header h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">URPEKARI</a>
+        <a href="index.html" class="nav-brand">Eusko Glider</a>
         <div class="nav-menu">
             <a href="proyecto.html">Proyecto</a>
             <a href="avances.html">Avances</a>
@@ -52,16 +150,43 @@
     </nav>
 
     <header class="page-header">
-        <h1>Nombre de la Sección</h1> 
+        <h1>Agradecimientos</h1> 
     </header>
 
     <section class="content">
-        <p>Aquí escribirás el contenido de esta página...</p>
-        <p>Página en construcción.</p>
+        <p class="intro-texto">El desarrollo del proyecto Urpekari no sería posible sin el apoyo, la financiación y el conocimiento de las siguientes personas e instituciones. Eskerrik asko!</p>
+
+        <div class="agradecimientos-grid">
+            
+            <div class="agradecimiento-card">
+                <h3>🏛️ Instituciones</h3>
+                <ul>
+                    <li><strong>Escuela de Ingeniería de Bilbao (EIB)</strong> - Por ceder los espacios, herramientas y facilidades para el desarrollo del AUV.</li>
+                    <li><strong>(Departamento)</strong> - Por el apoyo logístico y el acceso a los laboratorios.</li>
+                </ul>
+            </div>
+
+            <div class="agradecimiento-card">
+                <h3>👨‍🏫 Tutores y Profesores</h3>
+                <ul>
+                    <li><strong>[Nombre del Tutor Principal]</strong> - Tutor del proyecto..</li>
+                    <li><strong>[-]</strong> - -.</li>
+                </ul>
+            </div>
+
+            <div class="agradecimiento-card">
+                <h3>🤝 Patrocinadores y Apoyo</h3>
+                <ul>
+                    <li><strong>[Empresa o Taller Colaborador]</strong> - -.</li>
+                    <li><strong>[Otra persona o entidad]</strong> - [Motivo del agradecimiento].</li>
+                </ul>
+            </div>
+
+        </div>
     </section>
 
     <footer>
-        <p>Proyecto Urpekari - EIB</p>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
 </body>
