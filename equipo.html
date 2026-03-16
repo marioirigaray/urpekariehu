@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipo</title>
+    <title>Equipo - Eusko Glider</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES Y ESTILOS BASE (Igual que en toda la web) --- */
+        /* --- VARIABLES --- */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
+            --color-fondo: #FFFFD1; /* El blanco roto/crema */
             --color-blanco: #ffffff;
         }
 
@@ -25,7 +26,7 @@
             padding: 0;
             line-height: 1.6;
             color: var(--color-negro);
-            background-color: var(--color-blanco);
+            background-color: var(--color-fondo); /* Fondo general en crema */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -50,7 +51,7 @@
 
         /* --- CABECERA DE PÁGINA --- */
         .page-header {
-            background-color: var(--color-gris-claro);
+            background-color: var(--color-fondo); /* Título integrado en el crema */
             padding: 3rem 2rem;
             border-bottom: 2px solid var(--color-negro);
             text-align: center;
@@ -66,7 +67,7 @@
 
         /* --- CONTENIDO --- */
         .content-container {
-            max-width: 1000px; /* Un poco más ancho para que quepan bien las tarjetas */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 2rem;
             flex: 1; 
@@ -98,7 +99,7 @@
         }
 
         .miembro-tarjeta:hover {
-            transform: translateY(-5px); /* Efecto de que se levanta al pasar el ratón */
+            transform: translateY(-5px);
         }
 
         /* Espacio para la foto */
@@ -114,8 +115,6 @@
             color: #ccc;
             font-size: 1.2rem;
             text-transform: uppercase;
-            /* AQUÍ PODRÁS PONER LAS FOTOS REALES LUEGO: */
-            /* background-image: url('foto-jon.jpg'); background-size: cover; background-position: center; */
         }
 
         .info-miembro {
@@ -193,38 +192,38 @@
         <div class="equipo-grid">
             
             <div class="miembro-tarjeta">
-                <div class="foto-placeholder" style="background-image: url('foto-xabino.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="foto-placeholder">Foto 1</div>
                 <div class="info-miembro">
-                    <h3>Xabierno Lagunarias</h3>
-                    <div class="rol">Presidente del sindicato de surfistas discapacitados</div>
-                    <p>Flaco con pluma. No le preguntes nunca a un hombre su sueldo, a una mujer su peso, ni a xabino que hizo en verano de 2025.</p>
+                    <h3>Nombre 1</h3>
+                    <div class="rol">Puesto</div>
+                    <p>Breve descripción de las responsabilidades, tareas asignadas y el rol que desempeña esta persona en el proyecto.</p>
                 </div>
             </div>
 
             <div class="miembro-tarjeta">
-                <div class="foto-placeholder" style="background-image: url('foto-mario.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="foto-placeholder">Foto 2</div>
                 <div class="info-miembro">
-                    <h3>Mario Irigaray</h3>
-                    <div class="rol">LA CABRA</div>
-                    <p>Responsable del cerebro electrónico del glider, programación de algoritmos de navegación autónoma y telemetría de datos.</p>
+                    <h3>Nombre 2</h3>
+                    <div class="rol">Puesto</div>
+                    <p>Breve descripción de las responsabilidades, tareas asignadas y el rol que desempeña esta persona en el proyecto.</p>
                 </div>
             </div>
 
             <div class="miembro-tarjeta">
-                <div class="foto-placeholder">[Foto 3]</div>
+                <div class="foto-placeholder">Foto 3</div>
                 <div class="info-miembro">
-                    <h3>[Nombre 3]</h3>
-                    <div class="rol">Hidrodinámica / CAD</div>
-                    <p>Especialista en simulaciones CFD (Dinámica de Fluidos Computacional) para optimizar el perfil de las alas y minimizar el drag (arrastre).</p>
+                    <h3>Nombre 3</h3>
+                    <div class="rol">Puesto</div>
+                    <p>Breve descripción de las responsabilidades, tareas asignadas y el rol que desempeña esta persona en el proyecto.</p>
                 </div>
             </div>
 
              <div class="miembro-tarjeta">
-                <div class="foto-placeholder">[Foto 4]</div>
+                <div class="foto-placeholder">Foto 4</div>
                 <div class="info-miembro">
-                    <h3>[Nombre 4]</h3>
-                    <div class="rol">Sistemas Electrónicos</div>
-                    <p>Diseño de placas PCB personalizadas, integración de baterías de litio y gestión energética para garantizar la autonomía de 30 días.</p>
+                    <h3>Nombre 4</h3>
+                    <div class="rol">Puesto</div>
+                    <p>Breve descripción de las responsabilidades, tareas asignadas y el rol que desempeña esta persona en el proyecto.</p>
                 </div>
             </div>
 
