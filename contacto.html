@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
 
     <style>
-        /* Copiamos las variables y el estilo base del index */
+        /* --- VARIABLES --- */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
+            --color-fondo: #FFFFD1; /* El blanco roto/crema */
             --color-blanco: #ffffff;
         }
 
@@ -25,7 +26,7 @@
             padding: 0;
             line-height: 1.6;
             color: var(--color-negro);
-            background-color: var(--color-blanco);
+            background-color: var(--color-fondo); /* Fondo general en crema */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -50,7 +51,7 @@
 
         /* --- CABECERA DE PÁGINA --- */
         .page-header {
-            background-color: var(--color-gris-claro);
+            background-color: var(--color-fondo); /* Título integrado en el crema */
             padding: 3rem 2rem;
             border-bottom: 2px solid var(--color-negro);
             text-align: center;
@@ -61,6 +62,7 @@
             text-transform: uppercase;
             margin: 0;
             font-size: 2.5rem;
+            letter-spacing: -1px;
         }
 
         /* --- CONTENIDO Y FORMULARIO --- */
@@ -75,7 +77,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            background: var(--color-blanco);
+            background: var(--color-blanco); /* El formulario se queda blanco para resaltar sobre el crema */
             padding: 2rem;
             border: 2px solid var(--color-negro);
             box-shadow: 8px 8px 0px var(--color-amarillo);
@@ -121,6 +123,7 @@
             color: var(--color-negro);
         }
 
+        /* --- FOOTER --- */
         footer {
             background: var(--color-negro);
             color: var(--color-blanco);
@@ -156,7 +159,7 @@
     </header>
 
     <section class="content-container">
-        <p>¿Tienes alguna pregunta sobre el proyecto Urpekari o quieres colaborar con la EIB? Escríbenos.</p>
+        <p style="text-align: center; margin-bottom: 2rem;">¿Tienes alguna pregunta sobre el proyecto Urpekari o quieres colaborar con la EIB? Escríbenos.</p>
         
         <form class="formulario" action="https://formspree.io/f/mojkkepp" method="POST">
             <label for="nombre">Nombre / Entidad</label>
