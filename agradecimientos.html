@@ -80,8 +80,9 @@
 
         /* --- CAJAS DE AGRADECIMIENTOS --- */
         .agradecimientos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Esto es la magia que centra la tercera caja */
             gap: 2.5rem;
         }
 
@@ -90,6 +91,8 @@
             border: 2px solid var(--color-negro);
             box-shadow: 6px 6px 0px var(--color-amarillo);
             padding: 2rem;
+            flex: 1 1 300px;
+            max-width: 400px; /* Evita que la tarjeta inferior se haga excesivamente ancha */
         }
 
         .agradecimiento-card h3 {
@@ -132,6 +135,7 @@
             nav { flex-direction: column; gap: 1rem; padding: 1rem; }
             .nav-menu { justify-content: center; gap: 15px; }
             .page-header h1 { font-size: 2rem; }
+            .agradecimiento-card { max-width: 100%; /* En móviles ocupan todo el ancho */ }
         }
     </style>
 </head>
@@ -162,15 +166,15 @@
                 <h3>🏛️ Instituciones</h3>
                 <ul>
                     <li><strong>Escuela de Ingeniería de Bilbao (EIB)</strong> - Por ceder los espacios, herramientas y facilidades para el desarrollo del AUV.</li>
-                    <li><strong>(Departamento)</strong> - Por el apoyo logístico y el acceso a los laboratorios.</li>
+                    <li><strong>[Nombre del Departamento]</strong> - Por el apoyo logístico y el acceso a los laboratorios.</li>
                 </ul>
             </div>
 
             <div class="agradecimiento-card">
                 <h3>👨‍🏫 Tutores y Profesores</h3>
                 <ul>
-                    <li><strong>[Nombre del Tutor Principal]</strong> - Tutor del proyecto..</li>
-                    <li><strong>[-]</strong> - -.</li>
+                    <li><strong>[Nombre del Tutor Principal]</strong> - Tutor del proyecto.</li>
+                    <li><strong>[Nombre]</strong> - -.</li>
                 </ul>
             </div>
 
