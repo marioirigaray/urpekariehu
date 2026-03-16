@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="icon" type="image/png" href="logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avances</title> 
+    <title>Avances - Eusko Glider</title> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
     
     <style>
-        /* MISMOS ESTILOS PARA MANTENER LA COHERENCIA */
+        /* --- VARIABLES --- */
         :root {
             --color-negro: #111111;
             --color-gris-claro: #f4f4f4;
             --color-amarillo: #F5D833;
+            --color-fondo: #FFFFD1; /* El blanco roto/crema */
             --color-blanco: #ffffff;
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--color-negro); }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            color: var(--color-negro); 
+            background-color: var(--color-fondo);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
         
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--color-negro);
             padding: 1rem 2rem;
@@ -23,24 +36,125 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--color-amarillo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--color-amarillo); text-decoration: none; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
         .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
-        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-menu a { color: var(--color-blanco); text-decoration: none; font-weight: 500; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.85rem; transition: color 0.3s;}
         .nav-menu a:hover { color: var(--color-amarillo); }
 
-        /* Contenido específico de sub-páginas */
-        .page-header { background: var(--color-gris-claro); padding: 3rem 2rem; border-bottom: 2px solid var(--color-negro); }
-        .page-header h1 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
-        .content { padding: 2rem; max-width: 900px; margin: 0 auto; min-height: 50vh; }
-        
-        footer { background: var(--color-negro); color: var(--color-blanco); text-align: center; padding: 2rem; border-top: 5px solid var(--color-amarillo); }
+        /* --- CABECERA DE PÁGINA --- */
+        .page-header { 
+            background: var(--color-fondo); 
+            padding: 3rem 2rem; 
+            border-bottom: 2px solid var(--color-negro); 
+            text-align: center;
+        }
+        .page-header h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: -1px;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .content { 
+            padding: 3rem 2rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            flex: 1;
+        }
+
+        .intro-texto {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- DIARIO DE BITÁCORA (AVANCES) --- */
+        .logbook {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem; /* Espacio entre cada entrada del diario */
+        }
+
+        .avance-entry {
+            background: var(--color-blanco);
+            border: 2px solid var(--color-negro);
+            box-shadow: 8px 8px 0px var(--color-amarillo);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avance-header {
+            background: var(--color-negro);
+            color: var(--color-amarillo);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .avance-body {
+            padding: 2rem;
+        }
+
+        .avance-body h3 {
+            margin-top: 0;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--color-gris-claro);
+            padding-bottom: 0.5rem;
+        }
+
+        .avance-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hueco para futuras fotos */
+        .image-placeholder {
+            background: var(--color-gris-claro);
+            border: 2px dashed var(--color-negro);
+            padding: 3rem 1rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: #666;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Aquí irá el background-image cuando tengas fotos */
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            background: var(--color-negro); 
+            color: var(--color-blanco); 
+            text-align: center; 
+            padding: 2rem; 
+            border-top: 5px solid var(--color-amarillo); 
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-menu { justify-content: center; gap: 15px; }
+            .page-header h1 { font-size: 2rem; }
+            .avance-header { font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">URPEKARI</a>
+        <a href="index.html" class="nav-brand">Eusko Glider</a>
         <div class="nav-menu">
             <a href="proyecto.html">Proyecto</a>
             <a href="avances.html">Avances</a>
@@ -52,16 +166,45 @@
     </nav>
 
     <header class="page-header">
-        <h1>Nombre de la Sección</h1> 
+        <h1>Diario de Avances</h1> 
     </header>
 
     <section class="content">
-        <p>Aquí escribirás el contenido de esta página...</p>
-        <p>Página en construcción.</p>
+        <p class="intro-texto">Bitácora de desarrollo del proyecto Urpekari. Aquí documentaremos cronológicamente los progresos de diseño, fabricación, montaje y programación.</p>
+
+        <div class="logbook">
+
+            <article class="avance-entry">
+                <div class="avance-header">
+                    <span>Entrada #002</span>
+                    <span>[DD / MM / AÑO]</span>
+                </div>
+                <div class="avance-body">
+                    <h3>[Título del avance más reciente]</h3>
+                    <p>[Escribe aquí lo que habéis hecho. Por ejemplo: "Hoy hemos recibido las piezas torneadas en aluminio para las tapas del casco de presión. Hemos comprobado las tolerancias para las juntas tóricas (O-rings) y encajan perfectamente..."]</p>
+                    
+                    <div class="image-placeholder">[ Hueco para foto / render / esquema ]</div>
+                </div>
+            </article>
+
+            <article class="avance-entry">
+                <div class="avance-header">
+                    <span>Entrada #001</span>
+                    <span>[DD / MM / AÑO]</span>
+                </div>
+                <div class="avance-body">
+                    <h3>[Inicio del Proyecto / Diseño conceptual]</h3>
+                    <p>[Ejemplo de texto inicial: "Arrancamos el diseño del glider. Tras varias reuniones, hemos definido los requisitos de flotabilidad y hemos empezado a modelar el motor VBE en SolidWorks..."]</p>
+                    
+                    <div class="image-placeholder">[ Hueco para foto / render / esquema ]</div>
+                </div>
+            </article>
+
+        </div>
     </section>
 
     <footer>
-        <p>Proyecto Urpekari - EIB</p>
+        <p>Proyecto desarrollado en la EIB (UPV/EHU)</p>
     </footer>
 
 </body>
